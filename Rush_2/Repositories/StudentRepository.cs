@@ -16,6 +16,10 @@ namespace Rush_2.Repositories
         }
 
 
+        /// <summary>
+        /// This method is useful to create a new User.
+        /// </summary>
+        /// <param name="student"></param>
         public void InsertStudent(Student student)
         {
             string sql = "INSERT INTO Student (Name, Email, Gender, CreationDate) VALUES (@Name, @Email, @Gender, @CreationDate);";
@@ -37,13 +41,7 @@ namespace Rush_2.Repositories
         {
             string sql = "UPDATE Students SET Name = @Name, Email = @Email, Gender = @Gender, CreationDate = @CreationDate WHERE StudentId = @StudentId;";
             _dbConnection.Execute(sql, student);
-        }
-
-        public void DeleteStudent(int studentId)
-        {
-            string sql = "DELETE FROM Students WHERE StudentId = @StudentId;";
-            _dbConnection.Execute(sql, new { StudentId = studentId });
-        }
+        }      
     }
 
 }
